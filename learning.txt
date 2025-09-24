@@ -1,0 +1,77 @@
+<--------------flow in react code:
+ 
+         <ul className="nav nav-pills flex-column mb-auto">
+          {menuItems.map((item) => (
+            <li key={item.key} className="nav-item">
+              <button
+                className={`nav-link w-100 text-start ${
+                  activeItem === item.key ? "active" : ""
+                }`}
+                style={{
+                  color: activeItem === item.key ? "white" : "black",
+                  fontWeight: "600",
+                }}
+                onClick={() => setActiveItem(item.key)}
+              >
+                {item.label}
+              </button>
+            </li>
+          ))}
+        </ul>
+
+       Jab user kisi button pe click karta hai:
+
+Click hone par ye code chalega:
+
+onClick={() => setActiveItem(item.key)}
+
+
+Ye setActiveItem ko call karega aur activeItem state ko update karega us button ke item.key se.
+
+For example: agar "Verify Worker" pe click kiya jiska key = "verifyWorker" hai, to activeItem ban jaayega "verifyWorker".
+
+State Update ke baad React Re-render hoga.
+React apne aap component ko dobara render karega kyunki activeItem change hua hai.
+
+Re-render hone par className check hota hai:
+
+className={`nav-link w-100 text-start ${
+  activeItem === item.key ? "active" : ""
+}`}
+
+
+Ab har button apna item.key compare karega activeItem se.
+
+Jiska item.key === activeItem hoga, us button ko "active" class milegi.
+
+Baaki sabko empty string "" milegi, matlab wo inactive rahenge.
+
+
+<------------------------ flow 
+const [workerData, setWorkerData] = useState()
+
+useEffect(()=>{
+  const fetchVerifiedWorkerData = async () =>{
+    const response = await fetchVerifiedAndSelectedWorker();
+    console.log(response) // ✅ yahan sahi data mil raha hai
+    if(response?.data){
+      setWorkerData(response.data)
+    } 
+    console.log("Client", workerData) // ❌ yahan undefined aata hai
+  };
+  fetchVerifiedWorkerData(); 
+},[])
+
+Reason:
+setWorkerData asynchronous hota hai → turant state update nahi karta.
+React pehle update schedule karta hai, aur baad me component re-render hone par naya value workerData me aata hai.
+
+Isliye aap jab turant console.log(workerData) karte ho setWorkerData ke baad, tab tak state abhi purani hi hai (undefined).
+
+if(response?.data){
+  setWorkerData(response.data)
+  console.log("Client", response.data) // yahan correct milega
+}
+
+-----------------------------------------------------------
+ .find({ title: { $regex: searchTerm, $options: "i" } })

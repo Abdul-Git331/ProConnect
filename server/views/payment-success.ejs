@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Successful - ProConnect</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="card shadow-sm">
+      <div class="card-body text-center">
+        <h3 class="text-success mb-3">Payment Successful!</h3>
+        <p>Dear <strong><%= userName %></strong>,</p>
+        <p>Thank you for hiring <strong><%= workerName %></strong> for the service <strong><%= jobTitle %></strong>.</p>
+        <p><strong>Booking Date:</strong> <%= hiredAt %></p>
+        <p><strong>Service Scheduled On:</strong> <%= scheduledDate %></p>
+        <p><strong>Razorpay Payment ID:</strong> <%= paymentId %></p>
+        <hr>
+        <p>We appreciate your trust in <strong>ProConnect</strong> and look forward to serving you again.</p>
+        <a href="/" class="btn btn-primary mt-3">Go to Dashboard</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
