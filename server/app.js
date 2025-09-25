@@ -20,6 +20,7 @@ app.use(
     credentials: true,              
   })
 );
+app.options("*", cors());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
