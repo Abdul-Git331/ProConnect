@@ -2,7 +2,7 @@
 //-------------REgistration----------------------------
 
 export const createAdmin = async(email,name,password,contact,secret) =>{
-   const response = await fetch("http://localhost:5000/create-admin",{
+   const response = await fetch("https://proconnect-server1.onrender.com/create-admin",{
     method:"POST",
     headers:{"Content-Type": "application/json"},
     body: JSON.stringify({email,name,password,contact,secret}),
@@ -16,7 +16,7 @@ export const createAdmin = async(email,name,password,contact,secret) =>{
 //-------------------Login--------------------------
 
 export const adminLogin = async(form) =>{
-  const response = await fetch("http://localhost:5000/admin-login",{
+  const response = await fetch("https://proconnect-server1.onrender.com/admin-login",{
     method: "POST",
     headers:{"Content-Type":"application/json"},
     body: JSON.stringify(form),
@@ -31,7 +31,7 @@ export const adminLogin = async(form) =>{
 //-------------Logout---------------------
 
 export const logOut = async() => {
-  const response = await fetch("http://localhost:5000/logout", {
+  const response = await fetch("https://proconnect-server1.onrender.com/logout", {
     method: "GET",
     credentials: "include"
   });
@@ -45,7 +45,7 @@ export const logOut = async() => {
 //------------Service for fetching completed jobs by worker------------------
 
 export const fetchCompletedJobs = async() =>{
-  const response = await fetch("http://localhost:5000/get-completed-jobs",{
+  const response = await fetch("https://proconnect-server1.onrender.com/get-completed-jobs",{
     method: "GET",
     credentials: "include"
   });
@@ -58,7 +58,7 @@ export const fetchCompletedJobs = async() =>{
 //------------Service for fetching completed jobs by worker------------------
 
 export const fetchCancelledJobs = async() =>{
-  const response = await fetch("http://localhost:5000/get-cancelled-jobs",{
+  const response = await fetch("https://proconnect-server1.onrender.com/get-cancelled-jobs",{
     method: "GET",
     credentials: "include"
   });
@@ -71,7 +71,7 @@ export const fetchCancelledJobs = async() =>{
 //------------Service for fetching completed jobs by worker------------------
 
 export const fetchUnverifiedJobs = async() =>{
-  const response = await fetch("http://localhost:5000/fetch-unverified-jobs",{
+  const response = await fetch("https://proconnect-server1.onrender.com/fetch-unverified-jobs",{
     method: "GET",
     credentials: "include"
   });
@@ -84,7 +84,7 @@ export const fetchUnverifiedJobs = async() =>{
 //------------Service for fetching completed jobs by worker------------------
 
 export const verifyUnverifiedJob = async(id) =>{
-  const response = await fetch("http://localhost:5000/verify-unverified-jobs",{
+  const response = await fetch("https://proconnect-server1.onrender.com/verify-unverified-jobs",{
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({id}),
@@ -99,7 +99,7 @@ export const verifyUnverifiedJob = async(id) =>{
 //------------Service for fetching completed jobs by worker------------------
 
 export const rejectJob = async(id) =>{
-  const response = await fetch("http://localhost:5000/rejecting-unverified-jobs",{
+  const response = await fetch("https://proconnect-server1.onrender.com/rejecting-unverified-jobs",{
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({id}),
