@@ -1,7 +1,7 @@
 import { Form } from "react-router";
 
 export const workerRegistration = async (fd) => {
-  const response = await fetch("http://localhost:5000/worker-registration", {
+  const response = await fetch("https://proconnect-server1.onrender.com/worker-registration", {
     method: "POST",
     body: fd,
   });
@@ -11,7 +11,7 @@ export const workerRegistration = async (fd) => {
 };
 
 export const workerLogin = async (form) => {
-  const response = await fetch("http://localhost:5000/worker-login", {
+  const response = await fetch("https://proconnect-server1.onrender.com/worker-login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(form),
@@ -24,7 +24,7 @@ export const workerLogin = async (form) => {
 };
 
 export const fetchWorkerProfile = async () => {
-  const response = await fetch("http://localhost:5000/fetch-worker-data", {
+  const response = await fetch("https://proconnect-server1.onrender.com/fetch-worker-data", {
     method: "GET",
     credentials: "include",
   });
@@ -36,7 +36,7 @@ export const fetchWorkerProfile = async () => {
 //-----------Service for fetching the data of job assined to a from hiredModel for workerProfile.jsx
 
 export const fetchAssignedJobData = async() =>{
-  const response = await fetch("http://localhost:5000/fetch-assigned-jobs", {
+  const response = await fetch("https://proconnect-server1.onrender.com/fetch-assigned-jobs", {
     method: "GET",
     credentials: "include",
   });
@@ -48,7 +48,7 @@ export const fetchAssignedJobData = async() =>{
 //----------------Service for when worker click on mark complete for WworkerProfile.jsx-----------------------
 
 export const markComplete = async(id) =>{
-  const response = await fetch("http://localhost:5000/mark-complete", {
+  const response = await fetch("https://proconnect-server1.onrender.com/mark-complete", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({id}),
@@ -63,7 +63,7 @@ export const markComplete = async(id) =>{
 //----------------Service for when worker click on start for WworkerProfile.jsx-----------------------
 
 export const startjob = async(id) =>{
-  const response = await fetch("http://localhost:5000/start-job", {
+  const response = await fetch("https://proconnect-server1.onrender.com/start-job", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({id}),
@@ -78,7 +78,7 @@ export const startjob = async(id) =>{
 //Service for worker to see completed job details
 
 export const fetchCompletedJobsData = async() =>{
-  const response = await fetch("http://localhost:5000/fetch-completed-job-data", {
+  const response = await fetch("https://proconnect-server1.onrender.com/fetch-completed-job-data", {
     method: "GET",
     credentials: "include",
   });
@@ -92,7 +92,7 @@ export const fetchCompletedJobsData = async() =>{
 
 export const fetchUnVerifiedWorker = async () => {
   const response = await fetch(
-    "http://localhost:5000/fetch-unverified-worker",
+    "https://proconnect-server1.onrender.com/fetch-unverified-worker",
     {
       method: "GET",
       credentials: "include",
@@ -106,7 +106,7 @@ export const fetchUnVerifiedWorker = async () => {
 
 export const verifyWorker = async (id) => {
   const response = await fetch(
-    "http://localhost:5000/verify-unverified-worker",
+    "https://proconnect-server1.onrender.com/verify-unverified-worker",
     {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -122,7 +122,7 @@ export const verifyWorker = async (id) => {
 
 export const selectWorker = async (id) => {
   const response = await fetch(
-    "http://localhost:5000/select-unselected-worker",
+    "https://proconnect-server1.onrender.com/select-unselected-worker",
     {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -137,7 +137,7 @@ export const selectWorker = async (id) => {
 };
 
 export const rejectWorker = async (id) => {
-  const response = await fetch("http://localhost:5000/reject-worker", {
+  const response = await fetch("https://proconnect-server1.onrender.com/reject-worker", {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ id }),
@@ -153,7 +153,7 @@ export const rejectWorker = async (id) => {
 
 export const fetchVerifiedAndSelectedWorker = async () => {
   const response = await fetch(
-    "http://localhost:5000/verifiedselected-worker-data",
+    "https://proconnect-server1.onrender.com/verifiedselected-worker-data",
     {
       method: "GET",
       credentials: "include",
@@ -176,7 +176,7 @@ export const createNewJob = async (form) => {
     fd.append("jobImage", form.jobImage); 
   }
 
-  const response = await fetch("http://localhost:5000/create-new-job", {
+  const response = await fetch("https://proconnect-server1.onrender.com/create-new-job", {
     method: "POST",
     body: fd, 
     credentials: "include",
@@ -188,7 +188,7 @@ export const createNewJob = async (form) => {
 
 //--------------------Service for editing worker profile
 export const editWorkerProfile = async (formData) => {
-  const response = await fetch("http://localhost:5000/edit-worker-profile", {
+  const response = await fetch("https://proconnect-server1.onrender.com/edit-worker-profile", {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -205,7 +205,7 @@ export const editWorkerProfile = async (formData) => {
 
 export const pauseServices = async () => {
   const response = await fetch(
-    "http://localhost:5000/pause-services",
+    "https://proconnect-server1.onrender.com/pause-services",
     {
       method: "GET",
       credentials: "include",
@@ -221,7 +221,7 @@ export const pauseServices = async () => {
 
 export const startServices = async () => {
   const response = await fetch(
-    "http://localhost:5000/start-services",
+    "https://proconnect-server1.onrender.com/start-services",
     {
       method: "GET",
       credentials: "include",
@@ -238,7 +238,7 @@ export const startServices = async () => {
 
 export const fetchListedjobs = async() => {
    const response = await fetch(
-    "http://localhost:5000/fetch-listed-services",
+    "https://proconnect-server1.onrender.com/fetch-listed-services",
     {
       method: "GET",
       credentials: "include",
@@ -253,7 +253,7 @@ export const fetchListedjobs = async() => {
 //----------------Service for deleting a service by worker------------------
 
 export const deleteService = async(id) =>{
-  const response = await fetch("http://localhost:5000/delete-service",{
+  const response = await fetch("https://proconnect-server1.onrender.com/delete-service",{
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({id}),
@@ -268,7 +268,7 @@ export const deleteService = async(id) =>{
 //---------------Service for logOut-----------------
 
 export const logOut = async() => {
-  const response = await fetch("http://localhost:5000/logout", {
+  const response = await fetch("https://proconnect-server1.onrender.com/logout", {
     method: "GET",
     credentials: "include"
   });
