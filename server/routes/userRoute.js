@@ -85,11 +85,9 @@ userRouter.post("/login", async (req, res) => {
     const token = jwt.sign({ email, userId: user._id }, process.env.SECRET);
 
     res.cookie("token", token, {
-      httpOnly: true,
-      secure: true,
-      sameSite: "None",
-      path: "/",
-      maxAge: 24 * 60 * 60 * 1000,
+     httpOnly: true,
+      secure:  process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
     });
 
     res.status(200).json({
