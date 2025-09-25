@@ -166,11 +166,9 @@ workerRoute.post("/worker-login", async (req, res) => {
     console.log("jwt in login ", token);
 
     res.cookie("token", token, {
-      httpOnly: true,
-      secure: true,
-      sameSite: "None", 
-      path: "/",  
-      maxAge: 24 * 60 * 60 * 1000,
+     httpOnly: true,
+      secure:  process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
     });
 
     res.status(200).json({
