@@ -85,7 +85,7 @@ const BillingPage = () => {
         name: "Service Marketplace Platform",
         description: "Providing Services",
         order_id: data.order.id,
-        callback_url: `http://localhost:5000/payment-verification/${jobUniqueId}`,
+        callback_url: `https://proconnect-server1.onrender.com/payment-verification/${jobUniqueId}`,
         prefill: {
           name: "Test User",
           email: "test@example.com",
