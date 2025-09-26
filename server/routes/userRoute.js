@@ -828,7 +828,7 @@ userRouter.post("/payment-verification/:jobUniqueId",verifyToken,async (req, res
         userName: user.name,
         workerName: worker.name,
         jobTitle: particularJobData.jobId.title,
-        paymentId: razorpay_payment_id,
+        orderID: razorpay_order_id,
         scheduledDate: new Date(particularJobData.date).toLocaleDateString(),
         hiredAt: new Date(particularJobData.hiredAt).toLocaleString(),
       });
